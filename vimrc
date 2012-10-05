@@ -1,1 +1,0 @@
-/home/ctcyu/.vim/janus/vim/vimrc

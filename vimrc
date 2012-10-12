@@ -41,35 +41,5 @@ map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
-"map autocomplete braces
-"When you type an open brace, this will automatically
-"insert a closing brace on the same line, after the cursor.
-"If you quickly hit Enter after the open brace, (to begin
-"a code block), the closing brace will be inserted on the
-"line below the cursor. If you quickly press the open brace
-"key again after the open brace, Vim won't insert anything extra,
-"you'll just get a single open brace. Finally, if you quickly
-"type an open and close brace, Vim will not do anything special.)
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}
-
-inoremap (      ()<Left>
-inoremap (<CR>  (<CR>)<Esc>O
-inoremap ((     (
-inoremap ()     ()
-
-inoremap [      []<Left>
-inoremap [<CR>  [<CR>]<Esc>O
-inoremap [[     [
-inoremap []     []
-
-"CTRL-X is cut
-vnoremap <C-X> "+x
-
-"CTRL-C is copy
-vnoremap <C-C> "+y
-
 " open nerdtree on start using nerdtree_tabs plugin https://github.com/jistr/vim-nerdtree-tabs
 let g:nerdtree_tabs_open_on_console_startup=1

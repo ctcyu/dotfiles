@@ -9,6 +9,7 @@ fi
 alias v='vim'
 alias ..='cd ..'
 alias win='cd /mnt/win1/'
+alias windocs='cd /mnt/win1/Documents\ and\ Settings/Christine/Documents'
 alias cfxstart='cd ~/addon-dev/addon-sdk-1.10; source bin/activate ; cd -'
 
 # Colours

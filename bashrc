@@ -6,7 +6,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific aliases and functions
-alias v='vim'
+alias v='gvim -v'
 alias ..='cd ..'
 alias win='cd /mnt/win1/'
 alias windocs='cd /mnt/win1/Documents\ and\ Settings/Christine/Documents'

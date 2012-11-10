@@ -17,3 +17,6 @@ joinpdf(){
 
 # Colours
 LS_COLORS='ow=1;34' ; export LS_COLORS
+
+# Android ADB
+export PATH=$PATH:/home/ctcyu/android-sdk-linux/platform-tools/

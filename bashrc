@@ -20,3 +20,6 @@ LS_COLORS='ow=1;34' ; export LS_COLORS
 
 # Android ADB
 export PATH=$PATH:/home/ctcyu/android-sdk-linux/platform-tools/
+
+export TERM="xterm-256color"
+source ~/nvm/nvm.sh

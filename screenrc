@@ -1,0 +1,22 @@
+# modified from github.com/startup-class-dotfiles/.screenrc
+# Turn off that annoying start up message
+startup_message off
+
+# Turn the even more annoying whole-screen-flash-on-tab-complete "feature"
+ vbell off
+
+#sorendition (colour scheme for navigation bar)
+sorendition "+b kG"
+
+autodetach on
+defscrollback 10000
+silencewait 15
+
+#hardstatus = naviagation bar @ bottom
+hardstatus alwayslastline "%H %-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"  
+
+# autoload two screen tabs
+screen -t server 0
+screen -t vim 1
+screen -t git 2
+screen -t bash 3

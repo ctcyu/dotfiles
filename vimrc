@@ -41,8 +41,9 @@ map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
-" open nerdtree on start using nerdtree_tabs plugin https://github.com/jistr/vim-nerdtree-tabs
-let g:nerdtree_tabs_open_on_console_startup=1
+autocmd VimEnter * NERDTree
+autocmd BufEnter * NERDTreeMirror
 
 " syntax highlight django templating files (.djhtml) as html
 au BufNewFile,BufRead *.djhtml set filetype=html
+

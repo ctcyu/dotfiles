@@ -8,7 +8,7 @@ fi
 # User specific aliases and functions
 alias v='gvim -v'
 alias ..='cd ..'
-alias win='cd /mnt/win1/'
+alias win='cd /mnt/sda2/'
 alias windocs='cd /mnt/win1/Documents\ and\ Settings/Christine/Documents'
 alias cfxstart='cd ~/addon-dev/addon-sdk-1.10; source bin/activate ; cd -'
 joinpdf(){
@@ -22,4 +22,4 @@ LS_COLORS='ow=1;34' ; export LS_COLORS
 export PATH=$PATH:/home/ctcyu/android-sdk-linux/platform-tools/
 
 export TERM="xterm-256color"
-source ~/nvm/nvm.sh
+#source ~/nvm/nvm.sh

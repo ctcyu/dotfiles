@@ -23,3 +23,5 @@ export PATH=$PATH:/home/ctcyu/android-sdk-linux/platform-tools/
 
 export TERM="xterm-256color"
 #source ~/nvm/nvm.sh
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

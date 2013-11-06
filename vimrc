@@ -1,3 +1,4 @@
+set mouse=a
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
 

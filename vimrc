@@ -28,7 +28,7 @@ set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
-"set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -44,6 +44,11 @@ map <leader>tm :tabmove
 autocmd VimEnter * NERDTree
 autocmd BufEnter * NERDTreeMirror
 
+let g:nerdtree_tabs_open_on_console_startup=1
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+
 " syntax highlight django templating files (.djhtml) as html
 au BufNewFile,BufRead *.djhtml set filetype=html
+
+let g:SuperTabDefaultCompletionType = "context"
 

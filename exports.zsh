@@ -5,9 +5,12 @@ if is_macosx ; then
   export PATH=:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin::/Applications/Postgres93.app/Contents/MacOS/bin/:$PATH
 fi
 
-if is_macosx ; then
+if is_linux ; then
 # Android ADB
 export PATH=$PATH:/home/ctcyu/android-sdk-linux/platform-tools/
+fi
+if is_macosx; then
+  export PATH=$PATH:/Users/cyu/Apps/android-sdk-macosx/platform-tools/
 fi
 
 export TERM="xterm-256color"

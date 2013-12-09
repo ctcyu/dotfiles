@@ -51,4 +51,11 @@ map <Leader>n <plug>NERDTreeTabsToggle<CR>
 au BufNewFile,BufRead *.djhtml set filetype=html
 
 let g:SuperTabDefaultCompletionType = "context"
+" Easier split navigation
+
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
 

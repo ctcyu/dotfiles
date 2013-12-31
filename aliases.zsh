@@ -13,7 +13,7 @@ fi
 if is_linux; then
   alias vim='nocorrect <git lg> '
   alias win='cd /mnt/sda2/'
-  alias windocs='cd /mnt/win1/Documents\ and\ Settings/Christine/Documents'
+  alias windocs='cd /mnt/sda2/Documents\ and\ Settings/Christine/Documents'
   alias cfxstart='cd ~/addon-dev/addon-sdk-1.10; source bin/activate ; cd -'
 fi
 

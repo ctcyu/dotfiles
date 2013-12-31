@@ -7,7 +7,7 @@ fi
 
 if is_linux ; then
 # Android ADB
-export PATH=$PATH:/home/ctcyu/android-sdk-linux/platform-tools/
+export PATH=$PATH:/home/ctcyu/Apps/adt-bundle-linux-x86_64-20131030/sdk/platform-tools
 fi
 if is_macosx; then
   export PATH=$PATH:/Users/cyu/Apps/android-sdk-macosx/platform-tools/

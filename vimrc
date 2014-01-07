@@ -1,3 +1,25 @@
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+"Bundles, install with :BundleInstall
+Bundle 'tpope/vim-sensible'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'rking/ag.vim'
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'slim-template/vim-slim'
+Bundle 'jistr/vim-nerdtree-tabs'
+
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
 
@@ -24,7 +46,8 @@ set title                         " Set the terminal's title
 
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
-set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
+set noswapfile
+"set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen

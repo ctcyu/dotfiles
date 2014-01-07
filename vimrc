@@ -19,6 +19,8 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'slim-template/vim-slim'
 Bundle 'jistr/vim-nerdtree-tabs'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'ervandew/supertab'
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
@@ -82,3 +84,26 @@ nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
+""
+"" Whitespace
+""
+
+set nowrap                        " don't wrap lines
+set tabstop=2                     " a tab is two spaces
+set shiftwidth=2                  " an autoindent (with <<) is two spaces
+set expandtab                     " use spaces, not tabs
+set list                          " Show invisible characters
+set backspace=indent,eol,start    " backspace through everything in insert mode
+
+if exists("g:enable_mvim_shift_arrow")
+  let macvim_hig_shift_movement = 1 " mvim shift-arrow-keys
+endif
+
+" List chars
+set listchars=""                  " Reset the listchars
+set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
+set listchars+=trail:.            " show trailing spaces as dots
+set listchars+=extends:>          " The character to show in the last column when wrap is
+                                  " off and the line continues beyond the right of the screen
+set listchars+=precedes:<         " The character to show in the last column when wrap is
+                                  " off and the line continues beyond the left of the screen

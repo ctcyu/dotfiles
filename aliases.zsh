@@ -17,3 +17,8 @@ if is_linux; then
   alias cfxstart='cd ~/addon-dev/addon-sdk-1.10; source bin/activate ; cd -'
 fi
 
+if is_macosx; then
+ alias my_ip='/sbin/ifconfig | less'
+elif is_linux; then
+  alias my_ip='ip addr show'
+fi

@@ -87,11 +87,13 @@ nmap <silent> <c-l> :wincmd l<CR>
 ""
 "" Whitespace
 ""
+autocmd FileType * set tabstop=2|set shiftwidth=2|set noexpandtab
+autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
 
 set nowrap                        " don't wrap lines
-set tabstop=2                     " a tab is two spaces
-set shiftwidth=2                  " an autoindent (with <<) is two spaces
-set expandtab                     " use spaces, not tabs
+"set expandtab                     " use spaces, not tabs
+"set tabstop=2                     " a tab is two spaces
+"set shiftwidth=2                  " an autoindent (with <<) is two spaces
 set list                          " Show invisible characters
 set backspace=indent,eol,start    " backspace through everything in insert mode
 

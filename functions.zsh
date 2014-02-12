@@ -25,7 +25,11 @@ function extract {
 }
 
 function pg_start {
-  /usr/local/bin/pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+	if is_linux; then
+		/usr/local/bin/pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+	elif is_macosx; then
+		open -a Postgres93.app
+	fi
 }
 
 function pg_stop {

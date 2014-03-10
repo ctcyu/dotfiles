@@ -76,8 +76,10 @@ map <Leader>n <plug>NERDTreeTabsToggle<CR>
 au BufNewFile,BufRead *.djhtml set filetype=html
 
 let g:SuperTabDefaultCompletionType = "context"
-" Easier split navigation
 
+autocmd InsertEnter,InsertLeave * set cul! "underlines the current line in insert mode
+
+" Easier split navigation
 " Use ctrl-[hjkl] to select the active split!
 nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>

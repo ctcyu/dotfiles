@@ -9,6 +9,9 @@ alias ..='cd ..'
 alias ll='ls -GFhl'
 if is_macosx; then
   alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+	alias mkb='/Applications/Marmalade.app/Contents/s3e/bin/mkb'
+	alias edk-build='/Applications/Marmalade.app/Contents/s3e/bin/edk-build'
+	alias ionic-ios='reattach-to-user-namespace ionic emulate ios'
 fi
 if is_linux; then
   alias vim='nocorrect <git lg> '

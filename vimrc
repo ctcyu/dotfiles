@@ -74,6 +74,7 @@ map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
 " syntax highlight django templating files (.djhtml) as html
 au BufNewFile,BufRead *.djhtml set filetype=html
+au BufNewFile,BufRead *.s4e set filetype=cpp
 
 let g:SuperTabDefaultCompletionType = "context"
 

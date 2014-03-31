@@ -114,5 +114,9 @@ set listchars+=extends:>          " The character to show in the last column whe
 set listchars+=precedes:<         " The character to show in the last column when wrap is
                                   " off and the line continues beyond the left of the screen
 
-map <C-\> :tab split<CR> :exe 'tj' expand('<cword>')<CR> " use ctags to open implementation in new tab with ctrl-\
+"toggle displaying tab as ~ with CTRL-T and CTRL-Y
+map <c-t> :set listchars=tab:\~\ <cr>
+map <c-y> :set listchars=tab:\ \ <cr>
 
+" use ctags to open implementation in new tab with ctrl-\
+map <C-\> :tab split<CR> :exe 'tj' expand('<cword>')<CR>

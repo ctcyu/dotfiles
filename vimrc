@@ -118,5 +118,11 @@ set listchars+=precedes:<         " The character to show in the last column whe
 map <c-t> :set listchars=tab:\~\ <cr>
 map <c-y> :set listchars=tab:\ \ <cr>
 
+"increase screen width
+map <silent> <s-r> :vertical res+10<cr>
+map <silent> <s-e> :vertical res-10<cr>
+map <silent> <s-h> :res+10 <cr>
+map <silent> <s-d> :res-10<cr>
+
 " use ctags to open implementation in new tab with ctrl-\
 map <C-\> :tab split<CR> :exe 'tj' expand('<cword>')<CR>

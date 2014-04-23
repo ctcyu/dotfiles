@@ -92,6 +92,8 @@ nmap <silent> <c-l> :wincmd l<CR>
 ""
 autocmd FileType * set tabstop=2|set shiftwidth=2|set noexpandtab
 autocmd FileType ruby set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType yml set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
 
 set nowrap                        " don't wrap lines
@@ -119,10 +121,10 @@ map <c-t> :set listchars=tab:\~\ <cr>
 map <c-y> :set listchars=tab:\ \ <cr>
 
 "increase screen width
-map <silent> <s-r> :vertical res+10<cr>
-map <silent> <s-e> :vertical res-10<cr>
-map <silent> <s-h> :res+10 <cr>
-map <silent> <s-d> :res-10<cr>
+map <silent> <leader>sv :vertical res+10<cr>
+map <silent> <leader>svd :vertical res-10<cr>
+map <silent> <leader>sr :res+10<cr>
+map <silent> <leader>srd :res-10<cr>
 
 " use ctags to open implementation in new tab with ctrl-\
 map <C-\> :tab split<CR> :exe 'tj' expand('<cword>')<CR>

@@ -21,6 +21,10 @@ Bundle 'slim-template/vim-slim'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'ervandew/supertab'
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
+Bundle "honza/vim-snippets"
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
@@ -93,6 +97,7 @@ nmap <silent> <c-l> :wincmd l<CR>
 autocmd FileType * set tabstop=2|set shiftwidth=2|set noexpandtab
 autocmd FileType ruby set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType yml set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType xml set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
 

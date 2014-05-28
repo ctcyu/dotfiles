@@ -21,10 +21,13 @@ Bundle 'slim-template/vim-slim'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'ervandew/supertab'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
+Bundle 'tpope/vim-markdown'
+Bundle 'elzr/vim-json'
+Bundle 'plastic/vim-markdown'
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
@@ -94,11 +97,12 @@ nmap <silent> <c-l> :wincmd l<CR>
 ""
 "" Whitespace
 ""
-autocmd FileType * set tabstop=2|set shiftwidth=2|set noexpandtab
 autocmd FileType ruby set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType yml set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType xml set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType markdown set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType html set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
 
 set nowrap                        " don't wrap lines
@@ -133,3 +137,22 @@ map <silent> <leader>srd :res-10<cr>
 
 " use ctags to open implementation in new tab with ctrl-\
 map <C-\> :tab split<CR> :exe 'tj' expand('<cword>')<CR>
+
+" vim-markdown
+au BufNewFile,BufRead *.md  setf markdown
+let g:markdown_fenced_languages = ['css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
+
+"vim-json
+let g:vim_json_syntax_conceal = 0
+
+"folding
+set foldmethod=syntax
+set foldlevelstart=2
+
+let javaScript_fold=2         " JavaScript
+let ruby_fold=1               " Ruby
+let sh_fold_enabled=1         " sh
+let vimsyn_folding='af'       " Vim script
+let markdown_fold=1
+
+nnoremap <Space> za

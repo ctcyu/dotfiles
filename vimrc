@@ -154,5 +154,9 @@ let ruby_fold=1               " Ruby
 let sh_fold_enabled=1         " sh
 let vimsyn_folding='af'       " Vim script
 let markdown_fold=1
-
+"open folds with spacebar
 nnoremap <Space> za
+"never ever enter Ex mode
+nnoremap Q <nop>
+"open vimrc
+map <silent> <leader>rc :tabnew ~/dotfiles/vimrc<cr>

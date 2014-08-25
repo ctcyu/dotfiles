@@ -28,6 +28,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'tpope/vim-markdown'
 Bundle 'elzr/vim-json'
 Bundle 'plastic/vim-markdown'
+Bundle 'alfredodeza/jacinto.vim'
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
@@ -103,6 +104,8 @@ autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType markdown set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType html set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType java set tabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType c++ set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType yaml set tabstop=2|set shiftwidth=2|set expandtab
 
 set nowrap                        " don't wrap lines
@@ -160,3 +163,9 @@ nnoremap <Space> za
 nnoremap Q <nop>
 "open vimrc
 map <silent> <leader>rc :tabnew ~/dotfiles/vimrc<cr>
+
+" vertical line indentation
+let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#09AA08'
+let g:indentLine_char = '│'
+

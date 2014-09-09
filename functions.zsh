@@ -87,3 +87,8 @@ any() {
         ps xauwww | grep -i --color=auto "[${1[1]}]${1[2,-1]}"
     fi
 }
+
+pngcrushdir() {
+  ls *.png | while read line; do pngcrush -brute $line compressed/$line; done
+}
+

@@ -26,4 +26,3 @@ elif is_linux; then
   alias my_ip='ip addr show'
 fi
 
-unalias sl

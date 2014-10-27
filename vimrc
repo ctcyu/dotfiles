@@ -1,5 +1,5 @@
 set nocompatible
-filetype off
+filetype plugin on
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -30,6 +30,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'elzr/vim-json'
 Plugin 'plastic/vim-markdown'
 Plugin 'alfredodeza/jacinto.vim'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'groenewege/vim-less'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -88,6 +90,9 @@ map <Leader>n <plug>NERDTreeTabsToggle<CR>
 " syntax highlight django templating files (.djhtml) as html
 au BufNewFile,BufRead *.djhtml set filetype=html
 au BufNewFile,BufRead *.s4e set filetype=cpp
+
+au BufRead,BufNewFile *.ts        setlocal filetype=typescript
+set rtp+=/usr/local/lib/node_modules/typescript-tools
 
 let g:SuperTabDefaultCompletionType = "context"
 
@@ -166,6 +171,7 @@ let markdown_fold=1
 nnoremap <Space> za
 "never ever enter Ex mode
 nnoremap Q <nop>
+"
 "open vimrc
 map <silent> <leader>rc :tabnew ~/dotfiles/vimrc<cr>
 
@@ -173,4 +179,18 @@ map <silent> <leader>rc :tabnew ~/dotfiles/vimrc<cr>
 let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#09AA08'
 let g:indentLine_char = '│'
+
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+
+"off beep
+set noeb vb t_vb=
+
+" map less to css
+nnoremap <Leader>m :w <BAR> !lessc % > %:t:r.css<CR><space>
+
+syntax on
+filetype off
+filetype on
+syntax enable
 

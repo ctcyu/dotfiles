@@ -2,6 +2,7 @@ if is_linux ; then
   export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin/
 fi
 if is_macosx ; then
+  export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
   export PATH=:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin::/Applications/Postgres93.app/Contents/MacOS/bin:$PATH
 fi
 
@@ -10,7 +11,7 @@ if is_linux ; then
 export PATH=$PATH:/home/ctcyu/Apps/adt-bundle-linux-x86_64-20131030/sdk/platform-tools
 fi
 if is_macosx; then
-  export PATH=$PATH:/Users/cyu/Apps/android-sdk-macosx/platform-tools/:/usr/local/lib/node_modules/karma/bin
+  export PATH=$PATH:/Users/CYu/Apps/android-sdk-macosx/platform-tools/:/usr/local/lib/node_modules/karma/bin
   export ANDROID_HOME=/usr/local/opt/android-sdk
   export NDK_ROOT=/usr/local/Cellar/android-ndk/r8e/
 fi
@@ -31,3 +32,4 @@ if is_linux ; then
   export EDITOR='gvim -v'
 fi
 
+export ES_HEAP_SIZE=10g

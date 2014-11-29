@@ -22,7 +22,6 @@ Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'slim-template/vim-slim'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'ervandew/supertab'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
@@ -32,6 +31,8 @@ Plugin 'plastic/vim-markdown'
 Plugin 'alfredodeza/jacinto.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'groenewege/vim-less'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'ervandew/supertab'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -117,6 +118,7 @@ autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType java set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType c++ set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType yaml set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
 
 set nowrap                        " don't wrap lines
 "set expandtab                     " use spaces, not tabs
@@ -151,6 +153,7 @@ map <silent> <leader>srd :res-10<cr>
 " use ctags to open implementation in new tab with ctrl-\
 map <C-\> :tab split<CR> :exe 'tj' expand('<cword>')<CR>
 
+au FileType javascript call JavaScriptFold()
 " vim-markdown
 au BufNewFile,BufRead *.md  setf markdown
 let g:markdown_fenced_languages = ['css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
@@ -162,7 +165,7 @@ let g:vim_json_syntax_conceal = 0
 set foldmethod=syntax
 set foldlevelstart=2
 
-let javaScript_fold=2         " JavaScript
+"let javaScript_fold=2         " JavaScript
 let ruby_fold=1               " Ruby
 let sh_fold_enabled=1         " sh
 let vimsyn_folding='af'       " Vim script

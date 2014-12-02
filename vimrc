@@ -33,10 +33,13 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'groenewege/vim-less'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'ervandew/supertab'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+set background=dark
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
@@ -96,8 +99,6 @@ au BufRead,BufNewFile *.ts        setlocal filetype=typescript
 set rtp+=/usr/local/lib/node_modules/typescript-tools
 
 let g:SuperTabDefaultCompletionType = "context"
-
-autocmd InsertEnter,InsertLeave * set cul! "underlines the current line in insert mode
 
 " Easier split navigation
 " Use ctrl-[hjkl] to select the active split!

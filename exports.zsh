@@ -14,6 +14,7 @@ if is_macosx; then
   export PATH=$PATH:/Users/CYu/Apps/android-sdk-macosx/platform-tools/:/usr/local/lib/node_modules/karma/bin
   export ANDROID_HOME=/usr/local/opt/android-sdk
   export NDK_ROOT=/usr/local/Cellar/android-ndk/r8e/
+  export JAVA_HOME=`/usr/libexec/java_home -v '1.7*'` # use Java 7, for ES
 fi
 
 export TERM="xterm-256color"
@@ -33,3 +34,5 @@ if is_linux ; then
 fi
 
 export ES_HEAP_SIZE=10g
+export ES_MIN_MEM=10g
+export ES_MAX_MEN=10g

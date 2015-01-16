@@ -36,6 +36,14 @@ function pg_stop {
   /usr/local/bin/pg_ctl -D /usr/local/var/postgres stop -s -m fast
 }
 
+function es_start {
+  elasticsearch -Xms7g -Xmx7g --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml
+}
+
+function es_stop {
+  curl -XPOST 'http://localhost:9200/_shutdown'
+}
+
 function mysql_start {
   mysql.server start
 }

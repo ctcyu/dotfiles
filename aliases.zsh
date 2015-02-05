@@ -2,7 +2,7 @@
 if is_linux; then
   alias v='gvim -v'
 elif is_macosx; then
-  alias v='vim'
+  alias v='~/Apps/mvim -v'
 fi
 alias g='git'
 alias ..='cd ..'
@@ -12,6 +12,7 @@ if is_macosx; then
 	alias mkb='/Applications/Marmalade.app/Contents/s3e/bin/mkb'
 	alias edk-build='/Applications/Marmalade.app/Contents/s3e/bin/edk-build'
 	alias ionic-ios='reattach-to-user-namespace ionic emulate ios'
+  alias fjw='functional-javascript-workshop'
 fi
 if is_linux; then
   alias vim='nocorrect <git lg> '

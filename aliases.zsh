@@ -27,3 +27,5 @@ elif is_linux; then
   alias my_ip='ip addr show'
 fi
 
+alias npm-exec='PATH=$(npm bin):$PATH'
+

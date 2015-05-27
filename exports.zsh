@@ -12,6 +12,7 @@ export PATH=$PATH:/home/ctcyu/Apps/adt-bundle-linux-x86_64-20131030/sdk/platform
 fi
 if is_macosx; then
   export ANDROID_HOME=/Users/CYu/Apps/android-sdk-macosx
+  export ANDROID_SDK_ROOT=/Users/CYu/Apps/android-sdk-macosx
   export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:/usr/local/lib/node_modules/karma/bin
   #export ANDROID_HOME=/usr/local/opt/android-sdk
   export NDK_ROOT=/usr/local/Cellar/android-ndk/r8e/

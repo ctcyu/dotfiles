@@ -2,7 +2,7 @@
 if is_linux; then
   alias v='gvim -v'
 elif is_macosx; then
-  alias v='~/Apps/mvim -v'
+  alias v='/usr/local/bin/mvim -v'
 fi
 alias g='git'
 alias ..='cd ..'

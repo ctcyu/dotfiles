@@ -96,6 +96,13 @@ any() {
     fi
 }
 
+# -------------------------------------------------------------------
+# kill any process containing $1
+# -------------------------------------------------------------------
+kill9() {
+  kill -9 `any $1 | awk '{ print $2 }'`
+}
+
 pngcrushdir() {
   ls *.png | while read line; do pngcrush -brute $line compressed/$line; done
 }

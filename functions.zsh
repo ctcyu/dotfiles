@@ -107,3 +107,13 @@ pngcrushdir() {
   ls *.png | while read line; do pngcrush -brute $line compressed/$line; done
 }
 
+# -------------------------------------------------------------------
+# Reset a cordova plugin by removing it, and then re-adding it.
+# $1 - plugin ID
+# $2 - path to plugin project
+# -------------------------------------------------------------------
+cpreset() {
+    cordova plugin remove $1
+    cordova plugin add $2
+}
+

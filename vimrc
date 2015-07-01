@@ -91,9 +91,10 @@ autocmd BufEnter * NERDTreeMirror
 let g:nerdtree_tabs_open_on_console_startup=1
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
-" syntax highlight django templating files (.djhtml) as html
+"set filetype displays
 au BufNewFile,BufRead *.djhtml set filetype=html
 au BufNewFile,BufRead *.s4e set filetype=cpp
+au BufNewFile,BufRead *.jsx set filetype=javascript
 
 au BufRead,BufNewFile *.ts        setlocal filetype=typescript
 set rtp+=/usr/local/lib/node_modules/typescript-tools

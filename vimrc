@@ -108,6 +108,12 @@ nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
+" flip splits http://stackoverflow.com/a/26515591/962292
+"switch to horizontal
+map <silent> <leader>k :windo wincmd K<cr>
+"switch to vertical
+map <silent> <leader>h :windo wincmd H<cr>
+
 ""
 "" Whitespace
 ""

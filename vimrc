@@ -10,16 +10,11 @@ Plugin 'gmarik/vundle'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-rake'
 Plugin 'Lokaltog/vim-powerline'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
-Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'slim-template/vim-slim'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -36,6 +31,8 @@ Plugin 'ervandew/supertab'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
 Plugin 'alfredodeza/pytest.vim'
+Plugin 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -142,7 +139,7 @@ endif
 
 " List chars
 set listchars=""                  " Reset the listchars
-set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
+set listchars=tab:\~\             " a tab should display as "  ", trailing whitespace as "."
 set listchars+=trail:.            " show trailing spaces as dots
 set listchars+=extends:>          " The character to show in the last column when wrap is
                                   " off and the line continues beyond the right of the screen
@@ -206,8 +203,25 @@ filetype off
 filetype on
 syntax enable
 
-"indent guides
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=blue ctermbg=black
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=grey
+"indent guides, toggle with <Leader>ig
+hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesEven ctermbg=darkgrey
 
+"display rule at 120 chars
+set cc=120
+
+map <silent> <leader>ct :checktime<cr>
+
+" Override eslint with local version where necessary.
+let g:syntastic_javascript_checkers = ['eslint', 'flow']
+let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+if matchstr(local_eslint, "^\/\\w") == ''
+  let local_eslint = getcwd() . "/" . local_eslint
+endif
+if executable(local_eslint)
+  let g:syntastic_javascript_eslint_exec = local_eslint
+endif
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_error_symbol = "x"
+let g:syntastic_warning_symbol = "⚠"

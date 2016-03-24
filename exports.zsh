@@ -30,7 +30,7 @@ LS_COLORS='ow=1;34' ; export LS_COLORS
 
 #default editor
 if is_macosx ; then
-  export EDITOR='vim'
+  export EDITOR='/usr/local/bin/mvim -v'
 fi
 if is_linux ; then
   export EDITOR='gvim -v'

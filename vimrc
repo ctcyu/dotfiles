@@ -24,7 +24,6 @@ Plugin 'honza/vim-snippets'
 Plugin 'elzr/vim-json'
 Plugin 'plastic/vim-markdown'
 Plugin 'alfredodeza/jacinto.vim'
-Plugin 'leafgarland/typescript-vim'
 Plugin 'groenewege/vim-less'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'ervandew/supertab'
@@ -33,6 +32,11 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'alfredodeza/pytest.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -93,9 +97,6 @@ au BufNewFile,BufRead *.djhtml set filetype=html
 au BufNewFile,BufRead *.s4e set filetype=cpp
 au BufNewFile,BufRead *.jsx set filetype=javascript
 
-au BufRead,BufNewFile *.ts        setlocal filetype=typescript
-set rtp+=/usr/local/lib/node_modules/typescript-tools
-
 let g:SuperTabDefaultCompletionType = "context"
 
 " Easier split navigation
@@ -146,7 +147,7 @@ set listchars+=extends:>          " The character to show in the last column whe
 set listchars+=precedes:<         " The character to show in the last column when wrap is
                                   " off and the line continues beyond the left of the screen
 
-"toggle displaying tab as ~ with CTRL-T and CTRL-Y
+"toggle displaying tab as ~ with CTRL-t and CTRL-y
 map <c-t> :set listchars=tab:\~\ <cr>
 map <c-y> :set listchars=tab:\ \ <cr>
 
@@ -224,4 +225,10 @@ endif
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_error_symbol = "x"
-let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_warning_symbol = "w"
+
+"unite
+nnoremap <C-p> :Unite file_rec/async<cr>
+noremap <Leader>f :Unite -start-insert file_rec<CR>
+let g:unite_source_history_yank_enable = 1
+nnoremap <space>y :Unite history/yank<cr>

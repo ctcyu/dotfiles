@@ -29,3 +29,4 @@ fi
 
 alias npm-exec='PATH=$(npm bin):$PATH'
 alias byepyc='find . -name \*.pyc -delete'
+alias byeorig='find . -name \*.orig -delete'

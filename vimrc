@@ -34,9 +34,12 @@ Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'Quramy/tsuquyomi'
-Plugin 'Shougo/vimproc.vim'
+"Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/neomru.vim'
+Plugin 'Shougo/neoyank.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'terryma/vim-multiple-cursors'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -231,4 +234,11 @@ let g:syntastic_warning_symbol = "w"
 nnoremap <C-p> :Unite file_rec/async<cr>
 noremap <Leader>f :Unite -start-insert file_rec<CR>
 let g:unite_source_history_yank_enable = 1
-nnoremap <space>y :Unite history/yank<cr>
+nnoremap <Leader>y :Unite history/yank<cr>
+" see recently opened files with <Leader>m
+nnoremap <silent> <Leader>m :Unite -buffer-name=recent -winheight=10 file_mru<cr>
+" see buffers with <Leader>b
+nnoremap <Leader>b :Unite -buffer-name=buffers -winheight=10 buffer<cr>
+
+nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>                " turn off YCM
+nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>                "turn on YCM

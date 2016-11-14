@@ -22,7 +22,8 @@ if is_linux; then
 fi
 
 if is_macosx; then
- alias my_ip='/sbin/ifconfig | less'
+ #alias my_ip='/sbin/ifconfig | less'
+ alias my_ip="/sbin/ifconfig en0 | grep inet | grep -v inet6 | cut -d ' ' -f2"
 elif is_linux; then
   alias my_ip='ip addr show'
 fi

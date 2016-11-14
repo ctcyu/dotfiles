@@ -40,6 +40,10 @@ Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/neoyank.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'KabbAmine/vCoolor.vim'
+Plugin 'chrisbra/Colorizer'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -121,6 +125,7 @@ map <silent> <leader>h :windo wincmd H<cr>
 autocmd FileType ruby set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType xml set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType less set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType json set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType markdown set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType html set tabstop=2|set shiftwidth=2|set expandtab
@@ -154,7 +159,7 @@ set listchars+=precedes:<         " The character to show in the last column whe
 map <c-t> :set listchars=tab:\~\ <cr>
 map <c-y> :set listchars=tab:\ \ <cr>
 
-"increase screen width
+"increase/decrease screen width
 map <silent> <leader>sv :vertical res+10<cr>
 map <silent> <leader>svd :vertical res-10<cr>
 map <silent> <leader>sr :res+10<cr>
@@ -163,7 +168,6 @@ map <silent> <leader>srd :res-10<cr>
 " use ctags to open implementation in new tab with ctrl-\
 map <C-\> :tab split<CR> :exe 'tj' expand('<cword>')<CR>
 
-au FileType javascript call JavaScriptFold()
 " vim-markdown
 au BufNewFile,BufRead *.md  setf markdown
 let g:markdown_fenced_languages = ['css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
@@ -172,13 +176,13 @@ let g:markdown_fenced_languages = ['css', 'erb=eruby', 'javascript', 'js=javascr
 let g:vim_json_syntax_conceal = 0
 
 "folding
-set foldmethod=syntax
-set foldlevelstart=2
+"set foldmethod=syntax
+"set foldlevelstart=2
 
 "let javaScript_fold=2         " JavaScript
-let ruby_fold=1               " Ruby
-let sh_fold_enabled=1         " sh
-let vimsyn_folding='af'       " Vim script
+"let ruby_fold=1               " Ruby
+"let sh_fold_enabled=1         " sh
+"let vimsyn_folding='af'       " Vim script
 let markdown_fold=1
 "open folds with spacebar
 nnoremap <Space> za
@@ -241,4 +245,20 @@ nnoremap <silent> <Leader>m :Unite -buffer-name=recent -winheight=10 file_mru<cr
 nnoremap <Leader>b :Unite -buffer-name=buffers -winheight=10 buffer<cr>
 
 nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>                " turn off YCM
-nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>                "turn on YCM
+nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>                " turn on YCM
+
+"jedi
+let g:jedi#use_splits_not_buffers = "left"
+let g:jedi#usages_command = "<leader>u"
+
+nmap <leader>p :setlocal paste! paste?<cr>
+
+" colours
+set background=dark
+colo solarized
+hi Normal ctermbg=none
+highlight NonText ctermbg=none
+" colorizer
+let g:colorizer_auto_map = 1
+au BufNewFile,BufRead *.css,*.html,*.htm,*.js  :ColorHighlight!
+let g:colorizer_skip_comments = 1

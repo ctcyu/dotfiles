@@ -36,6 +36,7 @@ if is_linux ; then
   export EDITOR='gvim -v'
 fi
 
+# elasticsearch
 export ES_HEAP_SIZE=10g
 export ES_MIN_MEM=10g
 export ES_MAX_MEN=10g

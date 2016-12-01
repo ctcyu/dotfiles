@@ -262,3 +262,5 @@ highlight NonText ctermbg=none
 let g:colorizer_auto_map = 1
 au BufNewFile,BufRead *.css,*.html,*.htm,*.js  :ColorHighlight!
 let g:colorizer_skip_comments = 1
+
+map <silent> <leader>tc :tabclose<cr>

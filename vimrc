@@ -12,6 +12,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-repeat'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'rking/ag.vim'
@@ -97,7 +98,7 @@ autocmd VimEnter * NERDTree
 autocmd BufEnter * NERDTreeMirror
 
 let g:nerdtree_tabs_open_on_console_startup=1
-map <Leader>n <plug>NERDTreeTabsToggle<CR>
+map <Leader>n <plug>NERDTreeTabsToggle<CR>:vert resize 30<cr>
 
 "set filetype displays
 au BufNewFile,BufRead *.djhtml set filetype=html
@@ -115,9 +116,9 @@ nmap <silent> <c-l> :wincmd l<CR>
 
 " flip splits http://stackoverflow.com/a/26515591/962292
 "switch to horizontal
-map <silent> <leader>k :windo wincmd K<cr>
+map <silent> <leader>k :NERDTreeTabsClose<cr>:windo wincmd K<cr>
 "switch to vertical
-map <silent> <leader>h :windo wincmd H<cr>
+map <silent> <leader>h :NERDTreeTabsClose<cr>:windo wincmd H<cr>
 
 ""
 "" Whitespace
@@ -191,9 +192,11 @@ nnoremap Q <nop>
 "
 "open vimrc
 map <silent> <leader>rc :tabnew ~/dotfiles/vimrc<cr>
+"source vimrc
+map <silent> <leader>rrc :source ~/.vimrc<cr>
 
 " vertical line indentation
-let g:indentLine_color_term = 239
+let g:indentLine_color_term = 120
 let g:indentLine_color_gui = '#09AA08'
 let g:indentLine_char = '│'
 
@@ -228,6 +231,13 @@ if matchstr(local_eslint, "^\/\\w") == ''
 endif
 if executable(local_eslint)
   let g:syntastic_javascript_eslint_exec = local_eslint
+endif
+let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
+if matchstr(local_flow, "^\/\\w") == ''
+  let local_flow = getcwd() . "/" . local_flow
+endif
+if executable(local_flow)
+  let g:syntastic_javascript_flow_exec = local_flow
 endif
 
 let g:syntastic_always_populate_loc_list = 1

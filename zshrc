@@ -10,4 +10,4 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
 
-source ~/.bin/tmuxinator.zsh
+source ~/dotfiles/tmuxinator/tmuxinator.zsh

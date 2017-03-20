@@ -45,6 +45,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'KabbAmine/vCoolor.vim'
 Plugin 'chrisbra/Colorizer'
+Plugin 'ElmCast/elm-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -98,7 +99,7 @@ autocmd VimEnter * NERDTree
 autocmd BufEnter * NERDTreeMirror
 
 let g:nerdtree_tabs_open_on_console_startup=1
-map <Leader>n <plug>NERDTreeTabsToggle<CR>:vert resize 30<cr>
+map <Leader>n <plug>NERDTreeTabsToggle<CR>:au nerdtree :vert resize 30<CR>
 
 "set filetype displays
 au BufNewFile,BufRead *.djhtml set filetype=html
@@ -135,6 +136,7 @@ autocmd FileType java set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType c++ set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType yaml set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType elm set tabstop=2|set shiftwidth=2|set expandtab
 
 set nowrap                        " don't wrap lines
 "set expandtab                     " use spaces, not tabs
@@ -206,9 +208,6 @@ autocmd QuickFixCmdPost    l* nested lwindow
 "off beep
 set noeb vb t_vb=
 
-" map less to css
-nnoremap <Leader>m :w <BAR> !lessc % > %:t:r.css<CR><space>
-
 syntax on
 filetype off
 filetype on
@@ -249,9 +248,9 @@ nnoremap <C-p> :Unite file_rec/async<cr>
 noremap <Leader>f :Unite -start-insert file_rec<CR>
 let g:unite_source_history_yank_enable = 1
 nnoremap <Leader>y :Unite history/yank<cr>
-" see recently opened files with <Leader>m
-nnoremap <silent> <Leader>m :Unite -buffer-name=recent -winheight=10 file_mru<cr>
-" see buffers with <Leader>b
+" see recently opened files with <Leader>rf
+nnoremap <silent> <Leader>rf :Unite -buffer-name=recent -winheight=10 file_mru<cr>
+" see buffers with <Leader>bf
 nnoremap <Leader>b :Unite -buffer-name=buffers -winheight=10 buffer<cr>
 
 nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>                " turn off YCM
@@ -272,5 +271,3 @@ highlight NonText ctermbg=none
 let g:colorizer_auto_map = 1
 au BufNewFile,BufRead *.css,*.html,*.htm,*.js  :ColorHighlight!
 let g:colorizer_skip_comments = 1
-
-map <silent> <leader>tc :tabclose<cr>

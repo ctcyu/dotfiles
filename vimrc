@@ -43,9 +43,9 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'KabbAmine/vCoolor.vim'
-Plugin 'chrisbra/Colorizer'
 Plugin 'ElmCast/elm-vim'
+Plugin 'ternjs/tern_for_vim'
+Plugin 'lilydjwg/colorizer'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -224,7 +224,8 @@ map <silent> <leader>ct :checktime<cr>
 
 " Override eslint with local version where necessary.
 let g:syntastic_javascript_checkers = ['eslint', 'flow']
-let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+"let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+let local_eslint = finddir('node_modules', '.;') . '/react-scripts/node_modules/.bin/eslint'
 if matchstr(local_eslint, "^\/\\w") == ''
   let local_eslint = getcwd() . "/" . local_eslint
 endif
@@ -267,7 +268,11 @@ set background=dark
 colo solarized
 hi Normal ctermbg=none
 highlight NonText ctermbg=none
-" colorizer
-let g:colorizer_auto_map = 1
-au BufNewFile,BufRead *.css,*.html,*.htm,*.js  :ColorHighlight!
-let g:colorizer_skip_comments = 1
+
+nmap ,ct <Plug>Colorizer
+" delete surrounding space
+nnoremap <leader>dd F<space>xf<space>x
+nnoremap <leader>vi :vert resize 5<CR>
+nnoremap <leader>vd :vert resize -5<CR>
+nnoremap <leader>hi :resize 5<CR>
+nnoremap <leader>hd :resize -5<CR>

@@ -17,7 +17,7 @@ if is_macosx; then
   #export NDK_ROOT=/usr/local/Cellar/android-ndk/r8e/
   export NDK_ROOT=/Users/CYu/Android/android-ndk-r10e
   export JAVA_HOME=`/usr/libexec/java_home -v '1.7*'` # use Java 7, for ES
-  export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:/usr/local/lib/node_modules/karma/bin:$NDK_ROOT
+  export PATH=/usr/local/opt/sqlite/bin:$PATH:/usr/local/Cellar/sqlite:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:/usr/local/lib/node_modules/karma/bin:$NDK_ROOT
 fi
 
 export TERM="xterm-256color"

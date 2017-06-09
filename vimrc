@@ -224,8 +224,8 @@ map <silent> <leader>ct :checktime<cr>
 
 " Override eslint with local version where necessary.
 let g:syntastic_javascript_checkers = ['eslint', 'flow']
-"let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
-let local_eslint = finddir('node_modules', '.;') . '/react-scripts/node_modules/.bin/eslint'
+let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+"let local_eslint = finddir('node_modules', '.;') . '/react-scripts/node_modules/.bin/eslint'
 if matchstr(local_eslint, "^\/\\w") == ''
   let local_eslint = getcwd() . "/" . local_eslint
 endif
@@ -243,6 +243,14 @@ endif
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_error_symbol = "x"
 let g:syntastic_warning_symbol = "w"
+
+" https://vi.stackexchange.com/questions/8381/how-to-auto-fix-common-linting-errors-reported-via-syntastic
+set autoread
+" autofix with eslint
+let g:syntastic_javascript_eslint_args = ['--fix']
+function! SyntasticCheckHook(errors)
+  checktime
+endfunction
 
 "unite
 nnoremap <C-p> :Unite file_rec/async<cr>

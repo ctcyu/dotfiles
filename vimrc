@@ -23,7 +23,6 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'elzr/vim-json'
-Plugin 'plastic/vim-markdown'
 Plugin 'alfredodeza/jacinto.vim'
 Plugin 'groenewege/vim-less'
 Plugin 'jelera/vim-javascript-syntax'
@@ -46,6 +45,12 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'ElmCast/elm-vim'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'lilydjwg/colorizer'
+Plugin 'reasonml-editor/vim-reason'
+Plugin 'digitalrounin/vim-yaml-folds'
+" omicomplete doesn't work on types :/
+"Plugin 'flowtype/vim-flow'
+" create-react-app project doesn't allow --fix to be passed to eslint :/
+Plugin 'sbdchd/neoformat'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -127,6 +132,7 @@ map <silent> <leader>h :NERDTreeTabsClose<cr>:windo wincmd H<cr>
 autocmd FileType ruby set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType xml set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType reason set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType less set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType json set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType markdown set tabstop=2|set shiftwidth=2|set expandtab
@@ -180,6 +186,7 @@ let g:vim_json_syntax_conceal = 0
 
 "folding
 "set foldmethod=syntax
+"set foldmethod=indent
 "set foldlevelstart=2
 
 "let javaScript_fold=2         " JavaScript
@@ -238,15 +245,19 @@ if matchstr(local_flow, "^\/\\w") == ''
 endif
 if executable(local_flow)
   let g:syntastic_javascript_flow_exec = local_flow
+  " doesn't show 'crashed checker' msg when no errors due to inability to
+  " parse flow's error msg but slows down check
+  let g:syntastic_javascript_flow_exe = 'flow check'
 endif
+let g:flow#autoclose = 1
 
-let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_error_symbol = "x"
 let g:syntastic_warning_symbol = "w"
 
 " https://vi.stackexchange.com/questions/8381/how-to-auto-fix-common-linting-errors-reported-via-syntastic
 set autoread
-" autofix with eslint
+ "autofix with eslint
 let g:syntastic_javascript_eslint_args = ['--fix']
 function! SyntasticCheckHook(errors)
   checktime
@@ -266,7 +277,7 @@ nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>                " turn off YCM
 nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>                " turn on YCM
 
 "jedi
-let g:jedi#use_splits_not_buffers = "left"
+let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#usages_command = "<leader>u"
 
 nmap <leader>p :setlocal paste! paste?<cr>
@@ -284,3 +295,18 @@ nnoremap <leader>vi :vert resize 5<CR>
 nnoremap <leader>vd :vert resize -5<CR>
 nnoremap <leader>hi :resize 5<CR>
 nnoremap <leader>hd :resize -5<CR>
+
+"" prettier
+"autocmd FileType javascript set formatprg=prettier\ --single-quote\ --trailing-comma=es5\ --print-width=100\ --stdin
+"autocmd BufWritePre *.js :normal gggqG
+"autocmd BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o>"
+let g:neoformat_try_formatprg = 1
+augroup NeoformatAutoFormat
+    autocmd!
+    autocmd FileType javascript,javascript.jsx setlocal formatprg=prettier\
+                                                            \--stdin\
+                                                            \--print-width\ 80\
+                                                            \--single-quote\
+                                                            \--trailing-comma\ es5
+    autocmd BufWritePre *.js,*.jsx Neoformat
+augroup END

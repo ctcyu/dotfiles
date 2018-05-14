@@ -231,6 +231,7 @@ map <silent> <leader>ct :checktime<cr>
 
 " Override eslint with local version where necessary.
 let g:syntastic_javascript_checkers = ['eslint', 'flow']
+"let g:syntastic_javascript_checkers = []
 let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
 "let local_eslint = finddir('node_modules', '.;') . '/react-scripts/node_modules/.bin/eslint'
 if matchstr(local_eslint, "^\/\\w") == ''
@@ -243,11 +244,12 @@ let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
 if matchstr(local_flow, "^\/\\w") == ''
   let local_flow = getcwd() . "/" . local_flow
 endif
+
 if executable(local_flow)
   let g:syntastic_javascript_flow_exec = local_flow
-  " doesn't show 'crashed checker' msg when no errors due to inability to
-  " parse flow's error msg but slows down check
-  let g:syntastic_javascript_flow_exe = 'flow check'
+   "doesn't show 'crashed checker' msg when no errors due to inability to
+   "parse flow's error msg but slows down check
+  "let g:syntastic_javascript_flow_exe = 'flow check'
 endif
 let g:flow#autoclose = 1
 
@@ -300,13 +302,13 @@ nnoremap <leader>hd :resize -5<CR>
 "autocmd FileType javascript set formatprg=prettier\ --single-quote\ --trailing-comma=es5\ --print-width=100\ --stdin
 "autocmd BufWritePre *.js :normal gggqG
 "autocmd BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o>"
-let g:neoformat_try_formatprg = 1
-augroup NeoformatAutoFormat
-    autocmd!
-    autocmd FileType javascript,javascript.jsx setlocal formatprg=prettier\
-                                                            \--stdin\
-                                                            \--print-width\ 80\
-                                                            \--single-quote\
-                                                            \--trailing-comma\ es5
-    autocmd BufWritePre *.js,*.jsx Neoformat
-augroup END
+"let g:neoformat_try_formatprg = 1
+"augroup NeoformatAutoFormat
+    "autocmd!
+    "autocmd FileType javascript,javascript.jsx setlocal formatprg=prettier\
+                                                            "\--stdin\
+                                                            "\--print-width\ 80\
+                                                            "\--single-quote\
+                                                            "\--trailing-comma\ es5
+    "autocmd BufWritePre *.js,*.jsx Neoformat
+"augroup END

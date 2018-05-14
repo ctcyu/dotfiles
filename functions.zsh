@@ -117,3 +117,11 @@ cpreset() {
     cordova plugin add $2
 }
 
+# -------------------------------------------------------------------
+# mimic mac's open path in Finder cmd
+# because i cant spell nautilus
+# -------------------------------------------------------------------
+open() {
+  nautilus $1
+}
+

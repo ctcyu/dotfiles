@@ -13,7 +13,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-repeat'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'rking/ag.vim'
 Plugin 'jistr/vim-nerdtree-tabs'
@@ -51,6 +51,7 @@ Plugin 'digitalrounin/vim-yaml-folds'
 "Plugin 'flowtype/vim-flow'
 " create-react-app project doesn't allow --fix to be passed to eslint :/
 Plugin 'sbdchd/neoformat'
+Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -229,33 +230,33 @@ set cc=120
 
 map <silent> <leader>ct :checktime<cr>
 
-" Override eslint with local version where necessary.
-let g:syntastic_javascript_checkers = ['eslint', 'flow']
-"let g:syntastic_javascript_checkers = []
-let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
-"let local_eslint = finddir('node_modules', '.;') . '/react-scripts/node_modules/.bin/eslint'
-if matchstr(local_eslint, "^\/\\w") == ''
-  let local_eslint = getcwd() . "/" . local_eslint
-endif
-if executable(local_eslint)
-  let g:syntastic_javascript_eslint_exec = local_eslint
-endif
-let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
-if matchstr(local_flow, "^\/\\w") == ''
-  let local_flow = getcwd() . "/" . local_flow
-endif
+"" Override eslint with local version where necessary.
+"let g:syntastic_javascript_checkers = ['eslint', 'flow']
+""let g:syntastic_javascript_checkers = []
+"let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+""let local_eslint = finddir('node_modules', '.;') . '/react-scripts/node_modules/.bin/eslint'
+"if matchstr(local_eslint, "^\/\\w") == ''
+  "let local_eslint = getcwd() . "/" . local_eslint
+"endif
+"if executable(local_eslint)
+  "let g:syntastic_javascript_eslint_exec = local_eslint
+"endif
+"let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
+"if matchstr(local_flow, "^\/\\w") == ''
+  "let local_flow = getcwd() . "/" . local_flow
+"endif
 
-if executable(local_flow)
-  let g:syntastic_javascript_flow_exec = local_flow
-   "doesn't show 'crashed checker' msg when no errors due to inability to
-   "parse flow's error msg but slows down check
-  "let g:syntastic_javascript_flow_exe = 'flow check'
-endif
-let g:flow#autoclose = 1
+"if executable(local_flow)
+  "let g:syntastic_javascript_flow_exec = local_flow
+   ""doesn't show 'crashed checker' msg when no errors due to inability to
+   ""parse flow's error msg but slows down check
+  ""let g:syntastic_javascript_flow_exe = 'flow check'
+"endif
+"let g:flow#autoclose = 1
 
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_error_symbol = "x"
-let g:syntastic_warning_symbol = "w"
+"let g:syntastic_always_populate_loc_list = 0
+"let g:syntastic_error_symbol = "x"
+"let g:syntastic_warning_symbol = "w"
 
 " https://vi.stackexchange.com/questions/8381/how-to-auto-fix-common-linting-errors-reported-via-syntastic
 set autoread
@@ -312,3 +313,10 @@ nnoremap <leader>hd :resize -5<CR>
                                                             "\--trailing-comma\ es5
     "autocmd BufWritePre *.js,*.jsx Neoformat
 "augroup END
+"ale
+let g:ale_fixers = {
+\   'javascript': ['eslint', 'prettier'],
+\}
+let g:ale_fix_on_save = 1
+let g:ale_sign_error = 'x'
+let g:ale_sign_warning = 'w'

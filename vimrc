@@ -315,8 +315,9 @@ nnoremap <leader>hd :resize -5<CR>
 "augroup END
 "ale
 let g:ale_fixers = {
-\   'javascript': ['eslint', 'prettier'],
+\   'javascript': ['eslint'],
 \}
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = 'x'
 let g:ale_sign_warning = 'w'
+let g:ale_completion_enabled = 0

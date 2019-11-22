@@ -1,8 +1,9 @@
 # User specific aliases and functions
 if is_linux; then
   alias v='gvim -v'
-elif is_macosx; then
-  alias v='/usr/local/bin/mvim -v'
+fi
+if is_macosx; then
+  alias v='vim'
 fi
 alias g='git'
 alias ..='cd ..'

@@ -47,6 +47,9 @@ Plugin 'ternjs/tern_for_vim'
 Plugin 'lilydjwg/colorizer'
 Plugin 'reasonml-editor/vim-reason'
 Plugin 'digitalrounin/vim-yaml-folds'
+set rtp+=/usr/local/opt/fzf
+Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/rainbow_parentheses.vim'
 " omicomplete doesn't work on types :/
 "Plugin 'flowtype/vim-flow'
 " create-react-app project doesn't allow --fix to be passed to eslint :/
@@ -103,6 +106,7 @@ map <leader>tm :tabmove
 
 autocmd VimEnter * NERDTree
 autocmd BufEnter * NERDTreeMirror
+autocmd VimEnter * RainbowParentheses
 
 let g:nerdtree_tabs_open_on_console_startup=1
 map <Leader>n <plug>NERDTreeTabsToggle<CR>:au nerdtree :vert resize 30<CR>
@@ -126,11 +130,12 @@ nmap <silent> <c-l> :wincmd l<CR>
 map <silent> <leader>k :NERDTreeTabsClose<cr>:windo wincmd K<cr>
 "switch to vertical
 map <silent> <leader>h :NERDTreeTabsClose<cr>:windo wincmd H<cr>
-
+nnoremap ne :NERDTree
 ""
 "" Whitespace
 ""
 autocmd FileType ruby set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType liquid set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType xml set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType reason set tabstop=2|set shiftwidth=2|set expandtab
@@ -144,6 +149,8 @@ autocmd FileType c++ set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType yaml set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType elm set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType graphql set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType text set tabstop=2|set shiftwidth=2|set expandtab
 
 set nowrap                        " don't wrap lines
 "set expandtab                     " use spaces, not tabs
@@ -151,10 +158,6 @@ set nowrap                        " don't wrap lines
 "set shiftwidth=2                  " an autoindent (with <<) is two spaces
 set list                          " Show invisible characters
 set backspace=indent,eol,start    " backspace through everything in insert mode
-
-if exists("g:enable_mvim_shift_arrow")
-  let macvim_hig_shift_movement = 1 " mvim shift-arrow-keys
-endif
 
 " List chars
 set listchars=""                  " Reset the listchars
@@ -315,9 +318,11 @@ nnoremap <leader>hd :resize -5<CR>
 "augroup END
 "ale
 let g:ale_fixers = {
-\   'javascript': ['eslint'],
+\   'javascript': ['eslint', 'prettier'],
 \}
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = 'x'
 let g:ale_sign_warning = 'w'
 let g:ale_completion_enabled = 0
+
+nmap ff :call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --others --cached'}))

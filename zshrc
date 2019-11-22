@@ -20,3 +20,6 @@ plugins=(
   git
   docker
 )
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"

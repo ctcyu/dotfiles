@@ -1,4 +1,4 @@
 dotfiles
 ========
 
-zsh, vim, tmux on osx and fedora.
+zsh, vim, tmux on osx and fedora. 

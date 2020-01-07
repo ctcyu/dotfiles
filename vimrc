@@ -43,7 +43,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ElmCast/elm-vim'
-Plugin 'ternjs/tern_for_vim'
+" Plugin 'ternjs/tern_for_vim'
 Plugin 'lilydjwg/colorizer'
 Plugin 'reasonml-editor/vim-reason'
 Plugin 'digitalrounin/vim-yaml-folds'
@@ -317,9 +317,15 @@ nnoremap <leader>hd :resize -5<CR>
     "autocmd BufWritePre *.js,*.jsx Neoformat
 "augroup END
 "ale
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'python': ['flake8']
+\}
 let g:ale_fixers = {
 \   'javascript': ['eslint', 'prettier'],
+\   'python': ['black'],
 \}
+let g:ale_python_black_options="--skip-string-normalization"
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = 'x'
 let g:ale_sign_warning = 'w'

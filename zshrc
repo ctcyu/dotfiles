@@ -24,3 +24,11 @@ plugins=(
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/christine.yu/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/christine.yu/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/christine.yu/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/christine.yu/google-cloud-sdk/completion.zsh.inc'; fi

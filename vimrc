@@ -1,64 +1,63 @@
 set nocompatible
 filetype plugin on
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin()
+Plug 'tpope/vim-sensible'
 
-" Let Vundle manage Vundle
-Plugin 'gmarik/vundle'
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'Lokaltog/vim-powerline'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
 "Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
-Plugin 'rking/ag.vim'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'elzr/vim-json'
-Plugin 'alfredodeza/jacinto.vim'
-Plugin 'groenewege/vim-less'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'ervandew/supertab'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'Raimondi/delimitMate'
-Plugin 'alfredodeza/pytest.vim'
-Plugin 'mxw/vim-jsx'
-Plugin 'pangloss/vim-javascript'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'Quramy/tsuquyomi'
+Plug 'scrooloose/nerdtree'
+Plug 'rking/ag.vim'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'scrooloose/nerdcommenter'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'elzr/vim-json'
+Plug 'alfredodeza/jacinto.vim'
+Plug 'groenewege/vim-less'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'ervandew/supertab'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Raimondi/delimitMate'
+Plug 'alfredodeza/pytest.vim'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
 "Plugin 'Shougo/vimproc.vim'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/neomru.vim'
-Plugin 'Shougo/neoyank.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'ElmCast/elm-vim'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'Shougo/neoyank.vim'
+" YCM replaced by ale
+"Plug 'Valloric/YouCompleteMe'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'davidhalter/jedi-vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'ElmCast/elm-vim'
 " Plugin 'ternjs/tern_for_vim'
-Plugin 'lilydjwg/colorizer'
-Plugin 'reasonml-editor/vim-reason'
-Plugin 'digitalrounin/vim-yaml-folds'
-set rtp+=/usr/local/opt/fzf
-Plugin 'junegunn/fzf.vim'
-Plugin 'junegunn/rainbow_parentheses.vim'
+Plug 'lilydjwg/colorizer'
+Plug 'reasonml-editor/vim-reason'
+Plug 'digitalrounin/vim-yaml-folds'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/rainbow_parentheses.vim'
 " omicomplete doesn't work on types :/
 "Plugin 'flowtype/vim-flow'
 " create-react-app project doesn't allow --fix to be passed to eslint :/
-Plugin 'sbdchd/neoformat'
-Plugin 'w0rp/ale'
+Plug 'sbdchd/neoformat'
+Plug 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
@@ -142,8 +141,8 @@ autocmd FileType reason set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType less set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType json set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType markdown set tabstop=2|set shiftwidth=2|set expandtab
-autocmd FileType html set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType html set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType java set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType c++ set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType yaml set tabstop=2|set shiftwidth=2|set expandtab
@@ -151,6 +150,7 @@ autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType elm set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType graphql set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType text set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType php set tabstop=4|set shiftwidth=4|set expandtab
 
 set nowrap                        " don't wrap lines
 "set expandtab                     " use spaces, not tabs
@@ -209,7 +209,7 @@ map <silent> <leader>rc :tabnew ~/dotfiles/vimrc<cr>
 map <silent> <leader>rrc :source ~/.vimrc<cr>
 
 " vertical line indentation
-let g:indentLine_color_term = 120
+let g:indentLine_color_term = 160
 let g:indentLine_color_gui = '#09AA08'
 let g:indentLine_char = '│'
 
@@ -285,6 +285,7 @@ nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>                " turn on YCM
 "jedi
 let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#usages_command = "<leader>u"
+let g:jedi#force_py_version = 3
 
 nmap <leader>p :setlocal paste! paste?<cr>
 
@@ -319,16 +320,17 @@ nnoremap <leader>hd :resize -5<CR>
 "ale
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'python': ['flake8']
+\   'python': ['flake8', 'mypy']
 \}
 let g:ale_fixers = {
 \   'javascript': ['eslint', 'prettier'],
-\   'python': ['black'],
+\   'python': ['black']
 \}
-let g:ale_python_black_options="--skip-string-normalization"
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = 'x'
 let g:ale_sign_warning = 'w'
 let g:ale_completion_enabled = 0
+nmap <silent> <leader>aj :ALENext<cr>
+nmap <silent> <leader>ak :ALEPrevious<cr>
 
 nmap ff :call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --others --cached'}))

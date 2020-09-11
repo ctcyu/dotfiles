@@ -137,6 +137,7 @@ autocmd FileType ruby set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType liquid set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType xml set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType jsx set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType reason set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType less set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType json set tabstop=2|set shiftwidth=2|set expandtab
@@ -148,7 +149,7 @@ autocmd FileType c++ set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType yaml set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType elm set tabstop=2|set shiftwidth=2|set expandtab
-autocmd FileType graphql set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType graphql set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType text set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType php set tabstop=4|set shiftwidth=4|set expandtab
 
@@ -332,5 +333,7 @@ let g:ale_sign_warning = 'w'
 let g:ale_completion_enabled = 0
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
+autocmd FileType qf setlocal wrap
 
 nmap ff :call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --others --cached'}))
+autocmd BufRead,BufNewFile *.md setlocal spell

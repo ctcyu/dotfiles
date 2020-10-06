@@ -319,6 +319,9 @@ nnoremap <leader>hd :resize -5<CR>
     "autocmd BufWritePre *.js,*.jsx Neoformat
 "augroup END
 "ale
+let g:ale_python_flake8_use_global = 1
+let g:ale_python_black_use_global = 1
+let g:ale_python_mypy_use_global = 1
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'python': ['flake8', 'mypy']
@@ -337,3 +340,5 @@ autocmd FileType qf setlocal wrap
 
 nmap ff :call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --others --cached'}))
 autocmd BufRead,BufNewFile *.md setlocal spell
+
+:command Pdb :normal o import ipdb<cr>ipdb.set_trace()<cr><ESC>

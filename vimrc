@@ -55,6 +55,7 @@ Plug 'junegunn/rainbow_parentheses.vim'
 " create-react-app project doesn't allow --fix to be passed to eslint :/
 Plug 'sbdchd/neoformat'
 Plug 'w0rp/ale'
+Plug '907th/vim-auto-save'
 
 " All of your Plugins must be added before the following line
 call plug#end()
@@ -106,6 +107,8 @@ map <leader>tm :tabmove
 autocmd VimEnter * NERDTree
 autocmd BufEnter * NERDTreeMirror
 autocmd VimEnter * RainbowParentheses
+
+let g:auto_save = 1  " enable AutoSave on Vim startup
 
 let g:nerdtree_tabs_open_on_console_startup=1
 map <Leader>n <plug>NERDTreeTabsToggle<CR>:au nerdtree :vert resize 30<CR>
@@ -327,7 +330,7 @@ let g:ale_linters = {
 \   'python': ['flake8', 'mypy']
 \}
 let g:ale_fixers = {
-\   'javascript': ['eslint', 'prettier'],
+\   'javascript': ['eslint'],
 \   'python': ['black']
 \}
 let g:ale_fix_on_save = 1

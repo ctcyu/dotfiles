@@ -32,3 +32,6 @@ if [ -f '/Users/christine.yu/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ch
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/christine.yu/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/christine.yu/google-cloud-sdk/completion.zsh.inc'; fi
+
+# for pyenv
+eval "$(pyenv init -)"

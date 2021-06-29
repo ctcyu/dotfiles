@@ -108,7 +108,8 @@ autocmd VimEnter * NERDTree
 autocmd BufEnter * NERDTreeMirror
 autocmd VimEnter * RainbowParentheses
 
-let g:auto_save = 1  " enable AutoSave on Vim startup
+"let g:auto_save = 1  " enable AutoSave on Vim startup
+"let g:auto_save_events = ["InsertLeave"]
 
 let g:nerdtree_tabs_open_on_console_startup=1
 map <Leader>n <plug>NERDTreeTabsToggle<CR>:au nerdtree :vert resize 30<CR>
@@ -150,6 +151,7 @@ autocmd FileType html set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType java set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType c++ set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType yaml set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType yml set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType elm set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType graphql set tabstop=4|set shiftwidth=4|set expandtab
@@ -325,6 +327,7 @@ nnoremap <leader>hd :resize -5<CR>
 let g:ale_python_flake8_use_global = 1
 let g:ale_python_black_use_global = 1
 let g:ale_python_mypy_use_global = 1
+let g:ale_python_mypy_options = "--python-version 3.9.0"
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'python': ['flake8', 'mypy']
@@ -337,6 +340,7 @@ let g:ale_fix_on_save = 1
 let g:ale_sign_error = 'x'
 let g:ale_sign_warning = 'w'
 let g:ale_completion_enabled = 0
+"let g:ale_python_isort_options = '--profile black'
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
 autocmd FileType qf setlocal wrap
